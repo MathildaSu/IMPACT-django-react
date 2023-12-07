@@ -1,6 +1,6 @@
 import { useAuthStore } from '../store/auth';
 import axios from './axios';
-import jwtDecode from 'jwt-decode';
+import * as jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 export const login = async (username, password) => {
