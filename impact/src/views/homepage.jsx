@@ -3,17 +3,17 @@ import { login } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
 
-import "./login.css";
+import "./homepage.css";
 
-const Login = () => {
+const HomePage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   useEffect(() => {
-    if (isLoggedIn()) {
-      navigate("/");
+    if (!isLoggedIn()) {
+      navigate("/login");
     }
   }, []);
 
@@ -28,7 +28,7 @@ const Login = () => {
     if (error) {
       alert(error);
     } else {
-      navigate("/homepage");
+      navigate("/");
       resetForm();
     }
   };
@@ -82,4 +82,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default HomePage;

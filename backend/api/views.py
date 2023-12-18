@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 
-from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, NoteSerializer
-from .models import Note
+from .serializers import *
+from .models import *
 
 import json
 
@@ -87,32 +87,31 @@ def testEndPoint(request):
 
 
 @api_view(["GET"])
-def getNotes(request):
-    notes = Note.objects.all()
-    serializer = NoteSerializer(notes, many=True)
+def getOlderAdult(request):
+    oa = OlderAdult.objects.all()
+    serializer = OlderAdultSerializer(oa, many=True)
     return Response(serializer.data)
 
 
 @api_view(["GET"])
-def getNote(request, pk):
-    note = Note.objects.get(id=pk)
-    serializer = NoteSerializer(note)
+def getOlderAdult(request, pk):
+    oa = OlderAdult.objects.get(id=pk)
+    serializer = OlderAdultSerializer(oa)
     return Response(serializer.data)
 
 
 @api_view(["POST"])
-def createNote(request):
+def createOlderAdult(request):
     data = request.data
-    note = Note.objects.create(**data)
-    serializer = NoteSerializer(note)
+    oa = OlderAdult.objects.create(**data)
+    serializer = OlderAdultSerializer(oa)
     return Response(serializer.data)
 
 
 @api_view(["PUT"])
-def updateNote(request, pk):
-    note = Note.objects.get(id=pk)
-    data = request.data
-    serializer = NoteSerializer(note, data=request.data)
+def updateOlderAdult(request, pk):
+    oa = OlderAdult.objects.get(id=pk)
+    serializer = OlderAdultSerializer(oa, data=request.data)
 
     if serializer.is_valid():
         serializer.save()
@@ -121,7 +120,167 @@ def updateNote(request, pk):
 
 
 @api_view(["DELETE"])
-def deleteNote(request, pk):
-    note = Note.objects.get(id=pk)
-    note.delete()
+def deleteOlderAdult(request, pk):
+    oa = OlderAdult.objects.get(id=pk)
+    oa.delete()
+    return Response(f"Note with id={pk} is deleted.")
+
+
+@api_view(["GET"])
+def getStudyPartner(request):
+    sp = StudyPartner.objects.all()
+    serializer = StudyPartnerSerializer(sp, many=True)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+def getStudyPartner(request, pk):
+    sp = StudyPartner.objects.get(id=pk)
+    serializer = StudyPartnerSerializer(sp)
+    return Response(serializer.data)
+
+
+@api_view(["POST"])
+def createStudyPartner(request):
+    data = request.data
+    sp = StudyPartner.objects.create(**data)
+    serializer = StudyPartnerSerializer(sp)
+    return Response(serializer.data)
+
+
+@api_view(["PUT"])
+def updateStudyPartner(request, pk):
+    sp = StudyPartner.objects.get(id=pk)
+    serializer = StudyPartnerSerializer(sp, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(["DELETE"])
+def deleteStudyPartner(request, pk):
+    sp = StudyPartner.objects.get(id=pk)
+    sp.delete()
+    return Response(f"Note with id={pk} is deleted.")
+
+
+@api_view(["GET"])
+def getCommunityWorker(request):
+    cw = CommunityWorker.objects.all()
+    serializer = CommunityWorkerSerializer(cw, many=True)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+def getCommunityWorker(request, pk):
+    cw = CommunityWorker.objects.get(id=pk)
+    serializer = CommunityWorkerSerializer(cw)
+    return Response(serializer.data)
+
+
+@api_view(["POST"])
+def createCommunityWorker(request):
+    data = request.data
+    cw = CommunityWorker.objects.create(**data)
+    serializer = CommunityWorkerSerializer(cw)
+    return Response(serializer.data)
+
+
+@api_view(["PUT"])
+def updateCommunityWorker(request, pk):
+    cw = CommunityWorker.objects.get(id=pk)
+    serializer = CommunityWorkerSerializer(cw, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(["DELETE"])
+def deleteCommunityWorker(request, pk):
+    cw = CommunityWorker.objects.get(id=pk)
+    cw.delete()
+    return Response(f"Note with id={pk} is deleted.")
+
+
+@api_view(["GET"])
+def getVisit(request):
+    visit = Visit.objects.all()
+    serializer = VisitSerializer(visit, many=True)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+def getVisit(request, pk):
+    visit = Visit.objects.get(id=pk)
+    serializer = VisitSerializer(visit)
+    return Response(serializer.data)
+
+
+@api_view(["POST"])
+def createVisit(request):
+    data = request.data
+    visit = Visit.objects.create(**data)
+    serializer = VisitSerializer(visit)
+    return Response(serializer.data)
+
+
+@api_view(["PUT"])
+def updateVisit(request, pk):
+    visit = Visit.objects.get(id=pk)
+    serializer = VisitSerializer(visit, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(["DELETE"])
+def deleteVisit(request, pk):
+    visit = Visit.objects.get(id=pk)
+    visit.delete()
+    return Response(f"Note with id={pk} is deleted.")
+
+
+@api_view(["GET"])
+def getScreening(request):
+    screening = Screening.objects.all()
+    serializer = ScreeningSerializer(screening, many=True)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+def getScreening(request, pk):
+    screening = Screening.objects.get(id=pk)
+    serializer = ScreeningSerializer(screening)
+    return Response(serializer.data)
+
+
+@api_view(["POST"])
+def createScreening(request):
+    data = request.data
+    screening = Screening.objects.create(**data)
+    serializer = ScreeningSerializer(screening)
+    return Response(serializer.data)
+
+
+@api_view(["PUT"])
+def updateScreening(request, pk):
+    screening = Screening.objects.get(id=pk)
+    serializer = ScreeningSerializer(screening, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(["DELETE"])
+def deleteScreening(request, pk):
+    screening = Screening.objects.get(id=pk)
+    screening.delete()
     return Response(f"Note with id={pk} is deleted.")
