@@ -229,7 +229,7 @@ class Screening(models.Model):
             ("Incorrecto", "Sin respuesta clara"),
         ],
     )
-    rudas_item16 = models.JSONField(blank=True)
+    rudas_item16 = models.JSONField(blank=True, null=True)
     rudas_item17 = models.IntegerField(default=0, blank=True)
     rudas_item18 = models.TextField(blank=True, unique=True)
     pfeffer_item1 = models.CharField(max_length=16, blank=True, choices=pfeffer_item)
