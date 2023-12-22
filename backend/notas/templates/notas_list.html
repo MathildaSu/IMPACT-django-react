@@ -1,0 +1,12 @@
+<!-- templates/notas_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Notas List</h2>
+  <ul>
+    {% for nota in notas %}
+      <li>{{ nota.title }} - {{ nota.description }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

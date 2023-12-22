@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Borrar Nota</h2>
+  <p>Esta seguro que quiere borrar la nota? "{{ nota.title }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Borrar</button>
+  </form>
+  <a href="{% url 'nota_list' %}">Lista de Notas</a>
+{% endblock %}

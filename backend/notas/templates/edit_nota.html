@@ -1,0 +1,13 @@
+<!-- teamplates/edit_nota.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Cambiar Nota</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+  <a href="{% url 'notas_list' %}">Volver a lista de notas</a>
+{% endblock %}
