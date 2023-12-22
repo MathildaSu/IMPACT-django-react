@@ -1,3 +1,12 @@
+# Install NPM
+Use the package installer from NodeJS: https://nodejs.org/en/download/
+
+install dependencies using npm install
+```
+cd impact
+npm install
+```
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
