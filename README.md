@@ -7,7 +7,7 @@ and Co-morbidiTies  </h3>
  The system has a Django installation used for authentication, user management and (eventually) as the basis for a CMS (for the public website). Django provides a Model-View-Controller framework for the different views to access the research data. 
 Two views are currently being developed: 
   
-- IMPACT app: to be used by community health workers to collect data
+- [IMPACT app](https://github.com/ImperialCollegeLondon/IMPACT-dementia/blob/main/impact/README.md): to be used by community health workers to collect data
   
 - Ana: a chatbot to provide support to clients (PLWD and families)
 ---
