@@ -5,7 +5,10 @@ install dependencies using npm install
 ```
 cd impact
 npm install
+npm run build
+npm run preview
 ```
+This should have made the site availbale at http://localhost:4173/
 
 # React + Vite
 
