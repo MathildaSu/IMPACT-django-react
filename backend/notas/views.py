@@ -9,8 +9,15 @@ def index(request):
 
 
 def notas_list(request):
-    notas = Nota.objects.all()
-    return render(request, 'notas_list.html', {'notas': notas})
+    username = None
+    if request.user.is_authenticated:
+    # return list
+     username = request.user.username
+     notas = Nota.objects.all()
+     return render(request, 'notas_list.html', {'notas': notas})
+    else:
+    # return error
+     return render(request, 'error.html')
 
 
 def create_nota(request):

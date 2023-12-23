@@ -1,9 +1,8 @@
-<!-- templates/create_task.html -->
-
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Create New Nota</h2>
+  <h2>Create Nota</h2>
+  
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
