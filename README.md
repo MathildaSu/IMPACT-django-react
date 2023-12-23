@@ -10,6 +10,8 @@ Two views are currently being developed:
 - [IMPACT app](https://github.com/ImperialCollegeLondon/IMPACT-dementia/blob/main/impact/README.md): to be used by community health workers to collect data
   
 - Ana: a chatbot to provide support to clients (PLWD and families)
+
+- [Notas](https://github.com/ImperialCollegeLondon/IMPACT-dementia/blob/main/backend/notas/README.md): a small demo app 
 ---
 
 ## 📝 Table of Contents
