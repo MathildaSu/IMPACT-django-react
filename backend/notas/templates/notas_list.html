@@ -1,13 +1,60 @@
-<!-- templates/notas_list.html -->
+ <!-- templates/notas_list.html -->
 
 {% extends 'base.html' %}
+
+  
+      
+      <div class="DataTable">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Points</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dom</td>
+              <td>6000</td>
+              <td>USA</td>
+            </tr>
+            <tr>
+              <td>Melissa</td>
+              <td>5150</td>
+              <td>Canada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
 
 {% block content %}
 
   <h2>Notas de {{ user.get_username }}</h2>
-  <ul>
-    {% for nota in notas %}
-      <li>{{ nota.title }} - {{ nota.description }}</li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+  <div class="DataTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Completo</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for nota in notas %}
+        <tr>
+          <td>{{ nota.title }}</td>
+          <td>{{ nota.description }}</td>
+          <td>{{ nota.completed }}</td>
+          <td><a href="{% url 'edit_nota' nota.id %}">Edit</a> </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   
+  </div>
+
+{% endblock %} 
+

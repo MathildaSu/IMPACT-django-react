@@ -3,22 +3,17 @@ from django.shortcuts import render, redirect
 from .models import Nota
 from .forms import NotaForm
 
-
+# unused
 def index(request):
-    return HttpResponse("<h1>Hello, world. You're at the Notas index.</h1>")
+     return HttpResponse("<h1>Hello, world. You're at the Notas index.</h1>")
 
+def home(request):
+    return render(request, 'home.html')
 
 def notas_list(request):
-    username = None
-    if request.user.is_authenticated:
     # return list
-     username = request.user.username
      notas = Nota.objects.all()
      return render(request, 'notas_list.html', {'notas': notas})
-    else:
-    # return error
-     return render(request, 'error.html')
-
 
 def create_nota(request):
     if request.method == 'POST':
@@ -47,3 +42,8 @@ def delete_nota(request, pk):
         nota.delete()
         return redirect('notas_list')
     return render(request, 'delete_nota.html', {'nota': nota})
+
+""" def chw_list(request):
+     chw_list = CommunityWorker.objects.all()
+     return render(request, 'chw_list.html', {'chw_list': chw_list})
+     """
