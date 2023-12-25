@@ -76,7 +76,8 @@ Rest the server at http://127.0.0.1:8000/admin/login/?next=/admin/
 
 Once the server is running you can upload some data
 ```
-python ./manage.py loaddata test.json
+python ./manage.py loaddata notas
+python ./manage.py loaddata UserGroups
 ```
 
 
