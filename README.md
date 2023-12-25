@@ -48,8 +48,17 @@ A step by step series of examples that tell you how to get a development env run
 
 
 
-## 🔧 Running the tests <a name = "tests"></a>
-Explain how to run the automated tests for this system.
+## 🔧Running tests <a name = "tests"></a>
+
+
+
+## 🚀 Deployment <a name = "deployment"></a>
+Add additional notes about how to deploy this on a live system.
+###  Startup Data
+ Find here a description of the default data model for user groups. The data is in fixtures folder
+
+### 🔧 Starting dev server <a name = "tests"></a>
+To start a server with preloaded data, to be used for development
 
 Create DB
 ```
@@ -65,10 +74,12 @@ python manage.py runserver
 ```
 Rest the server at http://127.0.0.1:8000/admin/login/?next=/admin/
 
+Once the server is running you can upload some data
+```
+python ./manage.py loaddata notas
+python ./manage.py loaddata UserGroups
+```
 
-
-## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [Postgresql](https://www.postgresql.org) - Database
