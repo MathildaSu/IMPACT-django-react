@@ -23,9 +23,7 @@
                     <div style="width: 194px; height: 1px; left: 0px; top: -1px; position: absolute; background: #334155"></div>
                 </div>
             </div>
-
-            <li class="NavigationItem"> <img src="/static/images/RafaPhoto.jpg" with="48" height="40">
-                <a class="NavigationItem"> {{ user.get_username }}</a>   </li>
+            <li class="NavigationItem"> <img src="/static/images/person.jpg" with="48" height="40"> <a class="NavigationItem" href="{% url 'profile' 1 %}"> {{ user.get_username }}</a>   </li>
         </ul>
     </div>
     
