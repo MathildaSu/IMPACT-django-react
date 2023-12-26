@@ -95,8 +95,8 @@ python ./manage.py loaddata UserGroups
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@rcalvoic](https://github.com/rcalvoic) - Idea
-- [@MathildaSu] (https://github.com/MathildaSu) - MVP
-- Fernanda Espinoza - MVP Ana
+- [@MathildaSu](https://github.com/MathildaSu) - MVP
+- [@fernanda0121](https://github.com/fernanda0121) Fernanda Espinoza - MVP Ana
 - Marco Da Re - Interaction Design
 
 See also the list of [contributors](https://www.impact-dementia.org) who participated in this project.
