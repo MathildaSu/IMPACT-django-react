@@ -31,6 +31,11 @@ This is the source code repository for the IMPACT project. The project is descri
 Lúcar, Miriam G., et al. ‘Peru Initiates the IMPACT Project’. The Lancet Neurology, vol. 22, no. 8, Aug. 2023, p. 653. ScienceDirect, https://doi.org/10.1016/S1474-4422(23)00239-9
 ```
 
+## 🧐 Vision <a name = "vision"></a>
+Health problems across LMIC can be addressed with the participation of local community healthcare workers, often volunteers with little training, but lots of conenction to the community they are helping
+
+Beyond the IMPACT project we would lik ethis software to support the connection between CHW and patients and carers.
+
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
