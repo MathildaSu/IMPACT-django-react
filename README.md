@@ -16,6 +16,7 @@ Two views are currently being developed:
 
 ## 📝 Table of Contents
 - [About](#about)
+- [Vision](#vision)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Usage](#usage)
@@ -32,9 +33,9 @@ Lúcar, Miriam G., et al. ‘Peru Initiates the IMPACT Project’. The Lancet Ne
 ```
 
 ## 🧐 Vision <a name = "vision"></a>
-Health problems across LMIC can be addressed with the participation of local community healthcare workers, often volunteers with little training, but lots of conenction to the community they are helping
+Health problems across LMIC can be addressed with the participation of local community healthcare workers (CHW), often volunteers with little training, but lots of connection to the communities they are helping.
 
-Beyond the IMPACT project we would lik ethis software to support the connection between CHW and patients and carers.
+Beyond the IMPACT project we would like this software to support the connection between CHW and patients and carers.
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
