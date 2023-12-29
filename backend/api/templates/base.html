@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/static/menus.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}IMPACT{% endblock %}</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="column NavigationDrawer">
+      <a href="{% url 'home' %}"><img class="Logo" src="/static/images/logo-impact-dementia-white-4-x-1.png"> </a>
+      <ul class="menus">
+        <li class="NavigationItem"><a class="NavigationItemLink" href="{% url 'viewCHW' %}">List all CHW</a></li>
+        <li class="NavigationItem"><a class="NavigationItemLink" href="{% url 'create_chw' %}">Creat CHW <img
+              src="/static/images/NewItem.png">
+        <li class="NavigationItem"><a class="NavigationItemLink" href="{% url 'notas_list' %}">Lista de notas</a></li>
+        <li class="NavigationItem">
+          <a class="NavigationItemLink" href="{% url 'create_nota' %}">Crear nota <img
+              src="/static/images/NewItem.png"></a>
+        </li>
+        <li class="NavigationItemProfile">
+          <img src="/static/images/person.jpg" with="48" height="40">
+          <a href="{% url 'profile' 1 %}"> {{ user.get_username }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="column content">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+
+</html>
