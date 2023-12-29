@@ -1,16 +1,21 @@
-from django.shortcuts import render
-from rest_framework import status
-from rest_framework.decorators import api_view
+from django.shortcuts import render, redirect
+from rest_framework import status, generics
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework import generics
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
+from django.views.generic import ListView
+from django_tables2 import SingleTableView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.conf import settings
+
 
 from .serializers import *
 from .models import *
+from .tables import *
 
 import json
 
@@ -284,3 +289,71 @@ def deleteScreening(request, pk):
     screening = Screening.objects.get(id=pk)
     screening.delete()
     return Response(f"Note with id={pk} is deleted.")
+
+
+class CommunityWorkerListView(SingleTableView):
+    model = CommunityWorker
+    table_class = CommunityWorkerTable
+    template_name = "viewCHW.html"
+
+
+def home(request):
+    # Get the current user object
+    user = request.user
+    if not user.is_authenticated:
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    # show home
+    return render(request, "home.html", {"user": user})
+
+
+def create_chw(request):
+    # Get the current user object
+    # user = request.user
+    # if not user.is_authenticated:
+    #     return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    # # do form
+    # if request.method == "POST":
+    #     form = NotaForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect("notas_list")
+    # else:
+    #     form = NotaForm()
+    return render(request, "create_chw.html")
+
+
+# Define a view that requires the user to be logged in
+# @login_required
+def profile(request, pk):
+    # Get the current user object
+    user = request.user
+    if not user.is_authenticated:
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    # Render a template with the user's information
+    return render(request, "profile.html", {"user": user})
+
+
+class CommunityWorkerListView(SingleTableView):
+    model = CommunityWorker
+    table_class = CommunityWorkerTable
+    template_name = "viewCHW.html"
+
+
+def get_bhw_by_id(SingleTableView, pk):
+    model = CommunityWorker
+    chw = CommunityWorker.objects.get(id=pk)
+
+    for 
+    height = str(row_instance.height)
+    weight = str(row_instance.weight)
+    nationality = row_instance.nationality
+
+    # Create dictionary of data in form table will recognize
+    row_data = [
+        {"name": "height", "value": height},
+        {"name": "weight", "value": weight},
+        {"name": "nationality", "value": nationality},
+    ]
+
+    # Bind to table and configure
+    table = RowTable(row_data)

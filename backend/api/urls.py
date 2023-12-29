@@ -4,9 +4,10 @@ from . import views
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
+from .views import CommunityWorkerListView
 
 urlpatterns = [
-    path("", views.getRoutes),
+    path("", views.home, name="home"),
     path("token/", views.MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("register/", views.RegisterView.as_view(), name="auth_register"),
@@ -36,4 +37,8 @@ urlpatterns = [
     path("communityworker/<str:pk>/update/", views.updateCommunityWorker),
     path("communityworker/<str:pk>/delete/", views.deleteCommunityWorker),
     path("communityworker/<str:pk>/", views.getCommunityWorker),
+    path("people/", CommunityWorkerListView.as_view(), name="viewCHW"),
+    path("", views.home, name="home"),
+    path("create/", views.create_chw, name="create_chw"),
+    path("profile/<int:pk>/", views.profile, name="profile"),
 ]

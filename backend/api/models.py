@@ -331,6 +331,7 @@ class Visit(models.Model):
             ("Completado", "Completado"),
             ("Detenido", "Detenido"),
             ("Pendiente", "Pendiente"),
+            ("Planeada", "Planeada"),
         ],
     )
     duratioin = models.IntegerField(default=0)
