@@ -37,8 +37,8 @@ urlpatterns = [
     path("communityworker/<str:pk>/update/", views.updateCommunityWorker),
     path("communityworker/<str:pk>/delete/", views.deleteCommunityWorker),
     path("communityworker/<str:pk>/", views.getCommunityWorker),
-    path("people/", CommunityWorkerListView.as_view(), name="viewCHW"),
-    path("", views.home, name="home"),
-    path("create/", views.create_chw, name="create_chw"),
+    path("people/", CommunityWorkerListView.as_view(), name="viewCHWs"),
+    path("person/<str:pk>/", views.get_chw_by_id, name="viewCHW"),
+    path("create_chw/", views.create_chw, name="create_chw"),
     path("profile/<int:pk>/", views.profile, name="profile"),
 ]

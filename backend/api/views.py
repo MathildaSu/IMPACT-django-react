@@ -294,7 +294,7 @@ def deleteScreening(request, pk):
 class CommunityWorkerListView(SingleTableView):
     model = CommunityWorker
     table_class = CommunityWorkerTable
-    template_name = "viewCHW.html"
+    template_name = "viewCHWs.html"
 
 
 def home(request):
@@ -333,27 +333,13 @@ def profile(request, pk):
     return render(request, "profile.html", {"user": user})
 
 
-class CommunityWorkerListView(SingleTableView):
-    model = CommunityWorker
-    table_class = CommunityWorkerTable
-    template_name = "viewCHW.html"
+def get_chw_by_id(request, pk):
+    cw = CommunityWorker.objects.get(id=pk)
 
+    row_data = []
+    serializer = CommunityWorkerSerializer(cw)
+    for key in serializer.data.keys():
+        row_data.append({"name": key, "value": serializer.data[key]})
 
-def get_bhw_by_id(SingleTableView, pk):
-    model = CommunityWorker
-    chw = CommunityWorker.objects.get(id=pk)
-
-    for 
-    height = str(row_instance.height)
-    weight = str(row_instance.weight)
-    nationality = row_instance.nationality
-
-    # Create dictionary of data in form table will recognize
-    row_data = [
-        {"name": "height", "value": height},
-        {"name": "weight", "value": weight},
-        {"name": "nationality", "value": nationality},
-    ]
-
-    # Bind to table and configure
     table = RowTable(row_data)
+    return render(request, "viewCHW.html", {"table": table})
